@@ -1,8 +1,10 @@
 package com.example.javaee_hello3;
 
 import java.io.*;
+import java.util.Date;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
+import javax.xml.crypto.Data;
 
 @WebServlet(name = "helloServlet", value = "/hello-servlet")
 public class HelloServlet extends HttpServlet {
@@ -10,6 +12,12 @@ public class HelloServlet extends HttpServlet {
 
     public void init() {
         message = "Hello World!";
+    }
+
+    public String tagWrapper(String tag, String text)
+    {
+        String htmlData = "<" + tag + ">" + text + "</" + tag + ">";
+        return htmlData;
     }
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -22,8 +30,20 @@ public class HelloServlet extends HttpServlet {
         out.println("</body></html>");
 
         HttpSession session = request.getSession();
-        String story = (String) session.getAttribute("story") + "passed data to session.";
-        out.println(story);
+
+        out.println(tagWrapper("h2", "Session data:"));
+        out.println(tagWrapper("p", "Session ID: " + session.getId()));
+        out.println(tagWrapper("p", "Created time: " + ( new Date(session.getCreationTime()).toString())));
+
+        if(session.getAttribute("story") == null)
+        {
+            out.println(tagWrapper("p", "You haven't visited PassingServlet yet!"));
+        }
+        else
+        {
+            String story = (String) session.getAttribute("story") + "passed data to session.";
+            out.println("<p>" + story + "<p>");
+        }
     }
 
     public void destroy() {
