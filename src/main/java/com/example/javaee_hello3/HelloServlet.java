@@ -20,6 +20,10 @@ public class HelloServlet extends HttpServlet {
         out.println("<html><body>");
         out.println("<h1>" + message + "</h1>");
         out.println("</body></html>");
+
+        HttpSession session = request.getSession();
+        String story = (String) session.getAttribute("story") + "passed data to session.";
+        out.println(story);
     }
 
     public void destroy() {

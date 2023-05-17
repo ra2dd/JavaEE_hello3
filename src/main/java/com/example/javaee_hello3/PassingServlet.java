@@ -7,14 +7,17 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-public class SuccessServlet extends HttpServlet
+public class PassingServlet extends HttpServlet
 {
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException
     {
-        String welcomeMessage = (String) request.getAttribute("welcomeMessage");
-        welcomeMessage += " with Request Dispatcher.";
+        String name = (String) request.getParameter("name");
+        String story = name + " submitted a form and ";
+
+        HttpSession session = request.getSession();
+        session.setAttribute("story", story);
 
         PrintWriter out = response.getWriter();
-        out.println(welcomeMessage);
+        out.println("<a href=hello-servlet> Check if session works <a/>");
     }
 }

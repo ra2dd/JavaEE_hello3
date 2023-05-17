@@ -23,4 +23,14 @@
         <servlet-name>SuccessServlet</servlet-name>
         <url-pattern>/success</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>PassingServlet</servlet-name>
+        <servlet-class>com.example.javaee_hello3.PassingServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>PassingServlet</servlet-name>
+        <url-pattern>/session</url-pattern>
+    </servlet-mapping>
 </web-app>
