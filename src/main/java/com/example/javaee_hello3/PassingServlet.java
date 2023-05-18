@@ -10,7 +10,7 @@ public class PassingServlet extends HttpServlet
 {
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException
     {
-        String name = (String) request.getParameter("name");
+        String name = request.getParameter("name");
         String story = name + " submitted a form and ";
 
         HttpSession session = request.getSession();

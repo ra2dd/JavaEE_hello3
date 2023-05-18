@@ -18,5 +18,6 @@
 
         <a href="hello-servlet">Hello Servlet</a>
         <a href="login-form.html">Go to login form and session check</a>
+        <a href="test.jsp">Go to test jsp file</a>
     </body>
 </html>

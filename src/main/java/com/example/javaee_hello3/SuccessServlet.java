@@ -1,9 +1,11 @@
 package com.example.javaee_hello3;
 
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+@WebServlet("/success")
 public class SuccessServlet extends HttpServlet
 {
     public String tagWrapper(String tag, String text)
