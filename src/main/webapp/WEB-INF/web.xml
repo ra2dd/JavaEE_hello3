@@ -27,10 +27,21 @@
     <servlet>
         <servlet-name>PassingServlet</servlet-name>
         <servlet-class>com.example.javaee_hello3.PassingServlet</servlet-class>
+
+        <init-param>
+            <param-name>initColor</param-name>
+            <param-value>initPurple</param-value>
+        </init-param>
     </servlet>
 
     <servlet-mapping>
         <servlet-name>PassingServlet</servlet-name>
         <url-pattern>/session</url-pattern>
     </servlet-mapping>
+
+
+    <context-param>
+        <param-name>color</param-name>
+        <param-value>Blue</param-value>
+    </context-param>
 </web-app>
