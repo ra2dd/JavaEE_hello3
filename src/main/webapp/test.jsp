@@ -38,6 +38,6 @@
             <%= LocalDate.now() %>
         </p>
 
-
+        <%@ include file="section.jsp" %>
     </body>
 </html>
