@@ -14,6 +14,7 @@ public class HelloServlet extends HttpServlet {
         message = "Hello World!";
     }
 
+    // function for wrapping text into html tags
     public String tagWrapper(String tag, String text)
     {
         String htmlData = "<" + tag + ">" + text + "</" + tag + ">";
@@ -23,18 +24,22 @@ public class HelloServlet extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         response.setContentType("text/html");
 
-        // Hello
+        // Printing text from servlet
         PrintWriter out = response.getWriter();
         out.println("<html><body>");
         out.println("<h1>" + message + "</h1>");
         out.println("</body></html>");
 
+        // Fetching session
         HttpSession session = request.getSession();
 
+        // Printing session data
         out.println(tagWrapper("h2", "Session data:"));
         out.println(tagWrapper("p", "Session ID: " + session.getId()));
         out.println(tagWrapper("p", "Created time: " + ( new Date(session.getCreationTime()).toString())));
 
+
+        // Checking if session attribute exists and if true printing its value and additional info
         if(session.getAttribute("story") == null)
         {
             out.println(tagWrapper("p", "You haven't visited PassingServlet yet!"));
