@@ -44,6 +44,15 @@ public class HelloServlet extends HttpServlet {
             String story = (String) session.getAttribute("story") + "passed data to session.";
             out.println("<p>" + story + "<p>");
         }
+
+        if(session.getAttribute("sessionTest") == null)
+        {
+            out.println(tagWrapper("p", "You haven't visited test.jsp yet!"));
+        }
+        else
+        {
+            out.println(tagWrapper("p", (String) session.getAttribute("sessionTest")));
+        }
     }
 
     public void destroy() {

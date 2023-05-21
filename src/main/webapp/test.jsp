@@ -39,5 +39,10 @@
         </p>
 
         <%@ include file="section.jsp" %>
+
+        <%
+            session.setAttribute("sessionTest", "Session attribute created in test.jsp");
+            pageContext.setAttribute("pageContextTest", "Testing pageContext.", PageContext.SESSION_SCOPE);
+        %>
     </body>
 </html>
