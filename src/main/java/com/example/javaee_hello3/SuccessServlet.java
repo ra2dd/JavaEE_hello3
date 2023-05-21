@@ -11,8 +11,7 @@ public class SuccessServlet extends HttpServlet
     // function for wrapping text into html tags
     public String tagWrapper(String tag, String text)
     {
-        String htmlData = "<" + tag + ">" + text + "</" + tag + ">";
-        return htmlData;
+        return "<" + tag + ">" + text + "</" + tag + ">";
     }
 
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException
@@ -26,7 +25,7 @@ public class SuccessServlet extends HttpServlet
 
         //Get a list of cookies
         out.println(tagWrapper("h2", "List of cookies:"));
-        Cookie cookies[] = request.getCookies();
+        Cookie[] cookies = request.getCookies();
 
         //Loop through cookies to find a specific cookie
         for(Cookie aCookie : cookies)
