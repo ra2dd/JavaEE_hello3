@@ -21,5 +21,15 @@
             <c:out value="${ jstlText } printed using JSTL tags" />
         </p>
 
+        <p> Test user information: ${ testUser.toString() }</p>
+
+        <p>List of user email addresses:</p>
+        <ul>
+            <c:forEach items="${testUsers}" var="user">
+                <li>${ user.email_address }</li>
+            </c:forEach>
+        </ul>
+
+
     </body>
 </html>
